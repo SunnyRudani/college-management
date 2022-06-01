@@ -1,0 +1,457 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Student App",
+    "contact": {}
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": ["http","https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+
+    "/user/get": {
+      "get": {
+        "summary": "Get",
+        "tags": ["Users"],
+        "operationId": "Get1",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/getById": {
+      "get": {
+        "summary": "Get Employee By Id",
+        "tags": ["Users"],
+        "operationId": "GetEmployeeById",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/user/add": {
+      "post": {
+        "summary": "Add",
+        "tags": ["Users"],
+        "operationId": "PostAdd",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddRequest"
+            }
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+
+    "/user/delete": {
+      "delete": {
+        "summary": "Delete",
+        "tags": ["Users"],
+        "operationId": "Delete1",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+
+    "/account/login": {
+      "post": {
+        "summary": "Login",
+        "tags": ["Account"],
+        "operationId": "login",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/account/register": {
+      "post": {
+        "summary": "Register",
+        "tags": ["Account"],
+        "operationId": "register",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/account/activateAccount": {
+      "post": {
+        "summary": "activateAccount",
+        "tags": ["Account"],
+        "operationId": "activateAccount",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/activateAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/account/forgetPassword": {
+      "post": {
+        "summary": "forgetPassword",
+        "tags": ["Account"],
+        "operationId": "forgetPassword",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/forgetPasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/account/verifyOtpCode": {
+      "post": {
+        "summary": "verifyOtpCode",
+        "tags": ["Account"],
+        "operationId": "verifyOtpCode",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/verifyOtpCodeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/account/changePassword": {
+      "post": {
+        "summary": "changePassword",
+        "tags": ["Account"],
+        "operationId": "changePassword",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/changePasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+
+  },
+  "definitions": {
+    "AddRequest": {
+      "email":"rudanisunny01@gmail.com",
+      "password":"password"
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+        "password":{
+          "type":"string"
+        }
+      },
+      "required": ["email","password"]
+    },
+
+
+
+    "LoginRequest": {
+      "title": "EditRequest1",
+      "example": {
+        "email":"string",
+        "password":"string"
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+        "password":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "RegisterRequest": {
+      "title": "RegisterRequest",
+      "example": {
+
+        "email": "rudanisunny01@gmail.com",
+        "password": "password",
+        "confirmPassword":"password"
+
+
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+        "password":{
+          "type":"string"
+        },
+        "confirmPassword":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "forgetPasswordRequest": {
+      "title": "forgetPasswordRequest",
+      "example": {
+
+        "email": "rudanisunny01@gmail.com"
+
+
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email"
+
+      ]
+    },
+    "verifyOtpCodeRequest": {
+      "title": "verifyOtpCodeRequest",
+      "example": {
+
+        "email": "rudanisunny01@gmail.com",
+        "otpCode": "123456",
+        "newPassword": "12345678",
+        "confirmPassword": "123456789"
+
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+        "otpCode":{
+          "type":"string"
+        },
+        "newPassword":{
+          "type":"string"
+        },
+        "confirmPassword":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email",
+        "otpCode",
+        "newPassword",
+        "confirmPassword"
+
+      ]
+    },
+    "changePasswordRequest": {
+      "title": "changePasswordRequest",
+      "example": {
+
+        "email": "rudanisunny01@gmail.com",
+        "oldPassword": "87654321",
+        "newPassword": "12345678",
+        "confirmPassword": "123456789"
+
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+        "oldPassword":{
+          "type":"string"
+        },
+        "newPassword":{
+          "type":"string"
+        },
+        "confirmPassword":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email",
+        "oldPassword",
+        "newPassword",
+        "confirmPassword"
+
+      ]
+    },
+    "activateAccountRequest": {
+      "title": "activateAccountRequest",
+      "example": {
+
+        "email": "rudanisunny01@gmail.com",
+        "accountActivationCode": "123456"
+
+
+      },
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        },
+
+        "accountActivationCode":{
+          "type":"string"
+        }
+      },
+      "required": [
+        "email",
+
+        "accountActivationCode"
+
+      ]
+    },
+
+
+  "tags": [
+
+    {
+      "name": "Users"
+    },
+
+    {
+      "name":"Account"
+    }
+  ]
+}
